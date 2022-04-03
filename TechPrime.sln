@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechPrime", "TechPrime\TechPrime.csproj", "{7577D2F9-C06F-4C95-B8FE-D6B4C9691490}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechPrime.Test", "TechPrime.Test\TechPrime.Test.csproj", "{A79DD11B-1C7D-4F67-9F0B-FE3EB743F487}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7577D2F9-C06F-4C95-B8FE-D6B4C9691490}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7577D2F9-C06F-4C95-B8FE-D6B4C9691490}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7577D2F9-C06F-4C95-B8FE-D6B4C9691490}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7577D2F9-C06F-4C95-B8FE-D6B4C9691490}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A79DD11B-1C7D-4F67-9F0B-FE3EB743F487}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A79DD11B-1C7D-4F67-9F0B-FE3EB743F487}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A79DD11B-1C7D-4F67-9F0B-FE3EB743F487}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A79DD11B-1C7D-4F67-9F0B-FE3EB743F487}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
