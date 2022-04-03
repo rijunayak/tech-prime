@@ -1,5 +1,5 @@
 ﻿using NUnit.Framework;
-using static TechPrime.ComponentAddon.MotherboardAddon;
+using static TechPrime.ComponentAddon.ComponentAddon<TechPrime.ComponentAddon.IMotherboardAddon>;
 
 namespace TechPrime.Test.ComponentAddon
 {
