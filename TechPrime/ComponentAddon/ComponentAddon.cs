@@ -1,3 +1,4 @@
+// ReSharper disable InconsistentNaming
 namespace TechPrime.ComponentAddon
 {
     public class ComponentAddon<T> where T : IComponentAddon
