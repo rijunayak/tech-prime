@@ -54,6 +54,39 @@ namespace TechPrime.ComponentAddon
 
         #endregion
 
+        #region CpuAddons
+
+        public static ComponentAddon<ICpuAddon> L3Cache(ComponentAddon<ICpuAddon> cpuAddon = null)
+        {
+            return new ComponentAddon<ICpuAddon>(150, cpuAddon);
+        }
+
+        public static ComponentAddon<ICpuAddon> GraphicsAccelerator(ComponentAddon<ICpuAddon> cpuAddon = null)
+        {
+            return new ComponentAddon<ICpuAddon>(300, cpuAddon);
+        }
+
+        public static ComponentAddon<ICpuAddon> LiquidCooling(ComponentAddon<ICpuAddon> cpuAddon = null)
+        {
+            return new ComponentAddon<ICpuAddon>(300, cpuAddon);
+        }
+
+        #endregion
+
+        #region GpuAddons
+
+        public static ComponentAddon<IGpuAddon> ConcurrentProcessing(ComponentAddon<IGpuAddon> gpuAddon = null)
+        {
+            return new ComponentAddon<IGpuAddon>(350, gpuAddon);
+        }
+
+        public static ComponentAddon<IGpuAddon> VariablePixelShading(ComponentAddon<IGpuAddon> gpuAddon = null)
+        {
+            return new ComponentAddon<IGpuAddon>(400, gpuAddon);
+        }
+
+        #endregion
+
         public decimal Price()
         {
             return price + (componentAddon?.Price() ?? 0);
