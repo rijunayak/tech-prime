@@ -1,12 +1,16 @@
 // ReSharper disable InconsistentNaming
+
+using System.Runtime.CompilerServices;
+
+[assembly: InternalsVisibleTo("TechPrime.Test")]
 namespace TechPrime.ComponentAddon
 {
-    public class ComponentAddon<T> where T : IComponentAddon
+    public class ComponentAddon<T> : IComponentAddon<T> where T : ISingularAddon
     {
         private readonly decimal price;
-        private readonly ComponentAddon<T> componentAddon;
+        private readonly IComponentAddon<T> componentAddon;
 
-        private ComponentAddon(decimal price, ComponentAddon<T> componentAddon = null)
+        private ComponentAddon(decimal price, IComponentAddon<T> componentAddon = null)
         {
             this.price = price;
             this.componentAddon = componentAddon;
@@ -14,26 +18,26 @@ namespace TechPrime.ComponentAddon
 
         #region MotherboardAddons
 
-        public static ComponentAddon<IMotherboardAddon> SwitchLEDs(
-            ComponentAddon<IMotherboardAddon> motherboardAddon = null)
+        public static IComponentAddon<IMotherboardAddon> SwitchLEDs(
+            IComponentAddon<IMotherboardAddon> motherboardAddon = null)
         {
             return new ComponentAddon<IMotherboardAddon>(50, motherboardAddon);
         }
 
-        public static ComponentAddon<IMotherboardAddon> DDR5MemoryModules(
-            ComponentAddon<IMotherboardAddon> motherboardAddon = null)
+        public static IComponentAddon<IMotherboardAddon> DDR5MemoryModules(
+            IComponentAddon<IMotherboardAddon> motherboardAddon = null)
         {
             return new ComponentAddon<IMotherboardAddon>(200, motherboardAddon);
         }
 
-        public static ComponentAddon<IMotherboardAddon> GPUBridge(
-            ComponentAddon<IMotherboardAddon> motherboardAddon = null)
+        public static IComponentAddon<IMotherboardAddon> GPUBridge(
+            IComponentAddon<IMotherboardAddon> motherboardAddon = null)
         {
             return new ComponentAddon<IMotherboardAddon>(400, motherboardAddon);
         }
 
-        public static ComponentAddon<IMotherboardAddon> DedicatedWaterPumpHeaders(
-            ComponentAddon<IMotherboardAddon> motherboardAddon = null)
+        public static IComponentAddon<IMotherboardAddon> DedicatedWaterPumpHeaders(
+            IComponentAddon<IMotherboardAddon> motherboardAddon = null)
         {
             return new ComponentAddon<IMotherboardAddon>(300, motherboardAddon);
         }
@@ -42,12 +46,12 @@ namespace TechPrime.ComponentAddon
 
         #region RamAddons
 
-        public static ComponentAddon<IRamAddon> DdrChipType(ComponentAddon<IRamAddon> ramAddon = null)
+        public static IComponentAddon<IRamAddon> DdrChipType(IComponentAddon<IRamAddon> ramAddon = null)
         {
             return new ComponentAddon<IRamAddon>(200, ramAddon);
         }
 
-        public static ComponentAddon<IRamAddon> ErrorCheckingParity(ComponentAddon<IRamAddon> ramAddon = null)
+        public static IComponentAddon<IRamAddon> ErrorCheckingParity(IComponentAddon<IRamAddon> ramAddon = null)
         {
             return new ComponentAddon<IRamAddon>(100, ramAddon);
         }
@@ -56,17 +60,17 @@ namespace TechPrime.ComponentAddon
 
         #region CpuAddons
 
-        public static ComponentAddon<ICpuAddon> L3Cache(ComponentAddon<ICpuAddon> cpuAddon = null)
+        public static IComponentAddon<ICpuAddon> L3Cache(IComponentAddon<ICpuAddon> cpuAddon = null)
         {
             return new ComponentAddon<ICpuAddon>(150, cpuAddon);
         }
 
-        public static ComponentAddon<ICpuAddon> GraphicsAccelerator(ComponentAddon<ICpuAddon> cpuAddon = null)
+        public static IComponentAddon<ICpuAddon> GraphicsAccelerator(IComponentAddon<ICpuAddon> cpuAddon = null)
         {
             return new ComponentAddon<ICpuAddon>(300, cpuAddon);
         }
 
-        public static ComponentAddon<ICpuAddon> LiquidCooling(ComponentAddon<ICpuAddon> cpuAddon = null)
+        public static IComponentAddon<ICpuAddon> LiquidCooling(IComponentAddon<ICpuAddon> cpuAddon = null)
         {
             return new ComponentAddon<ICpuAddon>(300, cpuAddon);
         }
@@ -75,12 +79,12 @@ namespace TechPrime.ComponentAddon
 
         #region GpuAddons
 
-        public static ComponentAddon<IGpuAddon> ConcurrentProcessing(ComponentAddon<IGpuAddon> gpuAddon = null)
+        public static IComponentAddon<IGpuAddon> ConcurrentProcessing(IComponentAddon<IGpuAddon> gpuAddon = null)
         {
             return new ComponentAddon<IGpuAddon>(350, gpuAddon);
         }
 
-        public static ComponentAddon<IGpuAddon> VariablePixelShading(ComponentAddon<IGpuAddon> gpuAddon = null)
+        public static IComponentAddon<IGpuAddon> VariablePixelShading(IComponentAddon<IGpuAddon> gpuAddon = null)
         {
             return new ComponentAddon<IGpuAddon>(400, gpuAddon);
         }
