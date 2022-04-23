@@ -3,5 +3,6 @@
     public interface IComponentAddon<T> where T : ISingularAddon
     {
         decimal Price();
+        decimal LocationTax(Location location);
     }
 }

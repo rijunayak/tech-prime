@@ -1,5 +1,7 @@
 ﻿using NUnit.Framework;
+
 using static TechPrime.ComponentAddon.ComponentAddon<TechPrime.ComponentAddon.IMotherboardAddon>;
+using static TechPrime.Location;
 
 namespace TechPrime.Test.ComponentAddon
 {
@@ -40,6 +42,16 @@ namespace TechPrime.Test.ComponentAddon
 
                 Assert.That(motherboardAddon.Price(), Is.EqualTo(300));
             }
+
+            [Test]
+            public void Should_Tax_In_Locations_Correctly()
+            {
+                var motherboardAddon = DedicatedWaterPumpHeaders();
+
+                Assert.That(motherboardAddon.LocationTax(ByteSpace), Is.EqualTo(0.02m));
+                Assert.That(motherboardAddon.LocationTax(Encryptionia), Is.EqualTo(0.03m));
+                Assert.That(motherboardAddon.LocationTax(CompressionLand), Is.EqualTo(0.025m));
+            }
         }
 
         [TestFixture]
@@ -59,6 +71,16 @@ namespace TechPrime.Test.ComponentAddon
                 var ramAddon = DdrChipType(ErrorCheckingParity());
 
                 Assert.That(ramAddon.Price(), Is.EqualTo(300));
+            }
+
+            [Test]
+            public void Should_Tax_In_Locations_Correctly()
+            {
+                var ramAddon = DdrChipType();
+
+                Assert.That(ramAddon.LocationTax(ByteSpace), Is.EqualTo(0.025m));
+                Assert.That(ramAddon.LocationTax(Encryptionia), Is.EqualTo(0.03m));
+                Assert.That(ramAddon.LocationTax(CompressionLand), Is.EqualTo(0.015m));
             }
         }
 
@@ -88,6 +110,16 @@ namespace TechPrime.Test.ComponentAddon
 
                 Assert.That(cpuAddon.Price(), Is.EqualTo(300));
             }
+
+            [Test]
+            public void Should_Tax_In_Locations_Correctly()
+            {
+                var cpuAddon = LiquidCooling();
+
+                Assert.That(cpuAddon.LocationTax(ByteSpace), Is.EqualTo(0.03m));
+                Assert.That(cpuAddon.LocationTax(Encryptionia), Is.EqualTo(0.02m));
+                Assert.That(cpuAddon.LocationTax(CompressionLand), Is.EqualTo(0.04m));
+            }
         }
 
         [TestFixture]
@@ -107,6 +139,16 @@ namespace TechPrime.Test.ComponentAddon
                 var gpuAddon = ConcurrentProcessing(VariablePixelShading());
 
                 Assert.That(gpuAddon.Price(), Is.EqualTo(750));
+            }
+
+            [Test]
+            public void Should_Tax_In_Locations_Correctly()
+            {
+                var gpuAddon = ConcurrentProcessing();
+
+                Assert.That(gpuAddon.LocationTax(ByteSpace), Is.EqualTo(0.04m));
+                Assert.That(gpuAddon.LocationTax(Encryptionia), Is.EqualTo(0.03m));
+                Assert.That(gpuAddon.LocationTax(CompressionLand), Is.EqualTo(0.05m));
             }
         }
     }
