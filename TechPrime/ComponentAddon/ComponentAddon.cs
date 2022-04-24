@@ -1,8 +1,6 @@
 // ReSharper disable InconsistentNaming
 
-using System.Collections.Generic;
 using System.Runtime.CompilerServices;
-using static TechPrime.Location;
 
 // ReSharper disable StaticMemberInGenericType
 

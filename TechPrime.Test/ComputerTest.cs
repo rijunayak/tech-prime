@@ -1,5 +1,4 @@
 using NUnit.Framework;
-
 using static TechPrime.Component<TechPrime.ComponentAddon.IMotherboard>;
 using static TechPrime.Location;
 using static TechPrime.ComponentAddon.ComponentAddon<TechPrime.ComponentAddon.IMotherboard>;

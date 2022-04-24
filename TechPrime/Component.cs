@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using TechPrime.ComponentAddon;
-
 using static TechPrime.Location;
+
 // ReSharper disable StaticMemberInGenericType
 
 namespace TechPrime
@@ -17,7 +17,8 @@ namespace TechPrime
         private readonly IComponentAddon<T> componentAddon;
         private readonly IDictionary<Location, decimal> locationTax;
 
-        private Component(decimal basePrice, IComponentAddon<T> componentAddon, IDictionary<Location, decimal> locationTax)
+        private Component(decimal basePrice, IComponentAddon<T> componentAddon,
+            IDictionary<Location, decimal> locationTax)
         {
             this.basePrice = basePrice;
             this.componentAddon = componentAddon;
