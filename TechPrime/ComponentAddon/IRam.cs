@@ -1,6 +1,6 @@
 namespace TechPrime.ComponentAddon
 {
-    public interface IRamAddon : ISingularAddon
+    public interface IRam : IComponentType
     {
     }
 }

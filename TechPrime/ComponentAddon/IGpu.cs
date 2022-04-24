@@ -1,6 +1,6 @@
 ﻿namespace TechPrime.ComponentAddon
 {
-    public interface ISingularAddon
+    public interface IGpu : IComponentType
     {
     }
 }

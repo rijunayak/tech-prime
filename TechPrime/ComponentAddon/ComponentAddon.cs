@@ -2,129 +2,96 @@
 
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
-
 using static TechPrime.Location;
+
 // ReSharper disable StaticMemberInGenericType
 
 [assembly: InternalsVisibleTo("TechPrime.Test")]
+
 namespace TechPrime.ComponentAddon
 {
-    public class ComponentAddon<T> : IComponentAddon<T> where T : ISingularAddon
+    public class ComponentAddon<T> : IComponentAddon<T> where T : IComponentType
     {
         private readonly decimal price;
         private readonly IComponentAddon<T> componentAddon;
-        private readonly IDictionary<Location, decimal> locationTax;
 
-        private ComponentAddon(decimal price, IDictionary<Location, decimal> locationTax, IComponentAddon<T> componentAddon = null)
+        private ComponentAddon(decimal price, IComponentAddon<T> componentAddon = null)
         {
             this.price = price;
-            this.locationTax = locationTax;
             this.componentAddon = componentAddon;
         }
 
         #region MotherboardAddons
 
-        private static readonly IDictionary<Location, decimal> motherboardLocationTaxes =
-            new Dictionary<Location, decimal>
-                {
-                {ByteSpace, 0.02m},
-                {Encryptionia, 0.03m},
-                {CompressionLand, 0.025m}
-            };
-
-        public static IComponentAddon<IMotherboardAddon> SwitchLEDs(
-            IComponentAddon<IMotherboardAddon> motherboardAddon = null)
+        public static IComponentAddon<IMotherboard> SwitchLEDs(
+            IComponentAddon<IMotherboard> motherboardAddon = null)
         {
-            return new ComponentAddon<IMotherboardAddon>(50, motherboardLocationTaxes, motherboardAddon);
+            return new ComponentAddon<IMotherboard>(50, motherboardAddon);
         }
 
-        public static IComponentAddon<IMotherboardAddon> DDR5MemoryModules(
-            IComponentAddon<IMotherboardAddon> motherboardAddon = null)
+        public static IComponentAddon<IMotherboard> DDR5MemoryModules(
+            IComponentAddon<IMotherboard> motherboardAddon = null)
         {
-            return new ComponentAddon<IMotherboardAddon>(200, motherboardLocationTaxes, motherboardAddon);
+            return new ComponentAddon<IMotherboard>(200, motherboardAddon);
         }
 
-        public static IComponentAddon<IMotherboardAddon> GPUBridge(
-            IComponentAddon<IMotherboardAddon> motherboardAddon = null)
+        public static IComponentAddon<IMotherboard> GPUBridge(
+            IComponentAddon<IMotherboard> motherboardAddon = null)
         {
-            return new ComponentAddon<IMotherboardAddon>(400, motherboardLocationTaxes, motherboardAddon);
+            return new ComponentAddon<IMotherboard>(400, motherboardAddon);
         }
 
-        public static IComponentAddon<IMotherboardAddon> DedicatedWaterPumpHeaders(
-            IComponentAddon<IMotherboardAddon> motherboardAddon = null)
+        public static IComponentAddon<IMotherboard> DedicatedWaterPumpHeaders(
+            IComponentAddon<IMotherboard> motherboardAddon = null)
         {
-            return new ComponentAddon<IMotherboardAddon>(300, motherboardLocationTaxes, motherboardAddon);
+            return new ComponentAddon<IMotherboard>(300, motherboardAddon);
         }
 
         #endregion
 
         #region RamAddons
 
-        private static readonly IDictionary<Location, decimal> ramLocationTaxes =
-            new Dictionary<Location, decimal>
-            {
-                {ByteSpace, 0.025m},
-                {Encryptionia, 0.03m},
-                {CompressionLand, 0.015m}
-            };
-
-        public static IComponentAddon<IRamAddon> DdrChipType(IComponentAddon<IRamAddon> ramAddon = null)
+        public static IComponentAddon<IRam> DdrChipType(IComponentAddon<IRam> ramAddon = null)
         {
-            return new ComponentAddon<IRamAddon>(200, ramLocationTaxes, ramAddon);
+            return new ComponentAddon<IRam>(200, ramAddon);
         }
 
-        public static IComponentAddon<IRamAddon> ErrorCheckingParity(IComponentAddon<IRamAddon> ramAddon = null)
+        public static IComponentAddon<IRam> ErrorCheckingParity(IComponentAddon<IRam> ramAddon = null)
         {
-            return new ComponentAddon<IRamAddon>(100, ramLocationTaxes, ramAddon);
+            return new ComponentAddon<IRam>(100, ramAddon);
         }
 
         #endregion
 
         #region CpuAddons
 
-        private static readonly IDictionary<Location, decimal> cpuLocationTaxes =
-            new Dictionary<Location, decimal>
-            {
-                {ByteSpace, 0.03m},
-                {Encryptionia, 0.02m},
-                {CompressionLand, 0.04m}
-            };
-
-        public static IComponentAddon<ICpuAddon> L3Cache(IComponentAddon<ICpuAddon> cpuAddon = null)
+        public static IComponentAddon<ICpu> L3Cache(IComponentAddon<ICpu> cpuAddon = null)
         {
-            return new ComponentAddon<ICpuAddon>(150, cpuLocationTaxes, cpuAddon);
+            return new ComponentAddon<ICpu>(150, cpuAddon);
         }
 
-        public static IComponentAddon<ICpuAddon> GraphicsAccelerator(IComponentAddon<ICpuAddon> cpuAddon = null)
+        public static IComponentAddon<ICpu> GraphicsAccelerator(IComponentAddon<ICpu> cpuAddon = null)
         {
-            return new ComponentAddon<ICpuAddon>(300, cpuLocationTaxes, cpuAddon);
+            return new ComponentAddon<ICpu>(300, cpuAddon);
         }
 
-        public static IComponentAddon<ICpuAddon> LiquidCooling(IComponentAddon<ICpuAddon> cpuAddon = null)
+        public static IComponentAddon<ICpu> LiquidCooling(IComponentAddon<ICpu> cpuAddon = null)
         {
-            return new ComponentAddon<ICpuAddon>(300, cpuLocationTaxes, cpuAddon);
+            return new ComponentAddon<ICpu>(300, cpuAddon);
         }
 
         #endregion
 
         #region GpuAddons
 
-        private static readonly IDictionary<Location, decimal> gpuLocationTaxes =
-            new Dictionary<Location, decimal>
-            {
-                {ByteSpace, 0.04m},
-                {Encryptionia, 0.03m},
-                {CompressionLand, 0.05m}
-            };
-
-        public static IComponentAddon<IGpuAddon> ConcurrentProcessing(IComponentAddon<IGpuAddon> gpuAddon = null)
+        public static IComponentAddon<IGpu> ConcurrentProcessing(IComponentAddon<IGpu> gpuAddon = null)
         {
-            return new ComponentAddon<IGpuAddon>(350, gpuLocationTaxes, gpuAddon);
+            return new ComponentAddon<IGpu>(350, gpuAddon);
         }
 
-        public static IComponentAddon<IGpuAddon> VariablePixelShading(IComponentAddon<IGpuAddon> gpuAddon = null)
+        public static IComponentAddon<IGpu> VariablePixelShading(IComponentAddon<IGpu> gpuAddon = null)
         {
-            return new ComponentAddon<IGpuAddon>(400, gpuLocationTaxes, gpuAddon);
+            return new ComponentAddon<IGpu>(400, gpuAddon);
         }
 
         #endregion
@@ -132,11 +99,6 @@ namespace TechPrime.ComponentAddon
         public decimal Price()
         {
             return price + (componentAddon?.Price() ?? 0);
-        }
-
-        public decimal LocationTax(Location location)
-        {
-            return locationTax[location];
         }
     }
 }
